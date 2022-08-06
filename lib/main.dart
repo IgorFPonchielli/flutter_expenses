@@ -33,7 +33,7 @@ class ExpensesApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
-            button: TextStyle(
+            button: const TextStyle(
               color: Colors.white,
             )),
         appBarTheme: const AppBarTheme(
@@ -49,6 +49,8 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -164,41 +166,28 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar.preferredSize.height -
         mediaQuery.padding.top;
 
+    final bodyPage = SafeArea(
+        child: SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          if (_showChart || !isLandScape)
+            SizedBox(
+              height: availableHeight * (isLandScape ? 0.8 : 0.35),
+              child: Chart(_recentTransactions),
+            ),
+          if (!_showChart || !isLandScape)
+            SizedBox(
+              height: availableHeight * (isLandScape ? 1 : 0.65),
+              child: TransactionList(_transactions, _deleteTransaction),
+            ),
+        ],
+      ),
+    ));
+
     return Scaffold(
       appBar: appBar,
-      body: SingleChildScrollView(
-        child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            // if (isLandScape)
-            //   Row(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: [
-            //       Text('Exibir Grafico'),
-            //       Switch(
-            //         value: _showChart,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             _showChart = value;
-            //           });
-            //         },
-            //       ),
-            //     ],
-            //   ),
-            if (_showChart || !isLandScape)
-              SizedBox(
-                height: availableHeight * (isLandScape ? 0.8 : 0.35),
-                child: Chart(_recentTransactions),
-              ),
-            if (!_showChart || !isLandScape)
-              SizedBox(
-                height: availableHeight * (isLandScape ? 1 : 0.65),
-                child: TransactionList(_transactions, _deleteTransaction),
-              ),
-          ],
-        ),
-      ),
+      body: bodyPage,
       floatingActionButton: FloatingActionButton(
         onPressed: () => _openTransactionFormModal(context),
         child: const Icon(

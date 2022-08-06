@@ -60,19 +60,19 @@ class _TransactionFormState extends State<TransactionForm> {
               TextField(
                 controller: _titleController,
                 onSubmitted: (_) => _submitForm(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Título',
                 ),
               ),
               TextField(
                 controller: _valueController,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 onSubmitted: (_) => _submitForm(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Valor (R\$)',
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 70,
                 child: Row(
                   children: <Widget>[

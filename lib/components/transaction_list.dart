@@ -40,7 +40,7 @@ class TransactionList extends StatelessWidget {
               final tr = transactions[index];
               return Card(
                 elevation: 5,
-                margin: EdgeInsets.symmetric(
+                margin: const EdgeInsets.symmetric(
                   vertical: 8,
                   horizontal: 5,
                 ),
@@ -53,7 +53,7 @@ class TransactionList extends StatelessWidget {
                       child: FittedBox(
                         child: Text(
                           'R\$${tr.value.toStringAsFixed(2)}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                         ),

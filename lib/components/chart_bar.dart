@@ -23,7 +23,7 @@ class ChartBar extends StatelessWidget {
             ),
           ),
           SizedBox(height: constraints.maxHeight * 0.05),
-          Container(
+          SizedBox(
             height: constraints.maxHeight * 0.6,
             width: 10,
             child: Stack(
@@ -54,7 +54,7 @@ class ChartBar extends StatelessWidget {
           SizedBox(
             height: constraints.maxHeight * 0.05,
           ),
-          Container(
+          SizedBox(
               height: constraints.maxHeight * 0.15,
               child: FittedBox(
                 child: Text(label),
