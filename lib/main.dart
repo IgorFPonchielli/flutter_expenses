@@ -54,38 +54,44 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _transactions = [];
-  //   Transaction(
-  //     id: 't0',
-  //     title: 'Placa Mãe',
-  //     value: 999.90,
-  //     date: DateTime.now().subtract(const Duration(days: 28)),
-  //   ),
-  //   Transaction(
-  //     id: 't1',
-  //     title: 'Novo Tênis de corrida',
-  //     value: 310.76,
-  //     date: DateTime.now().subtract(const Duration(days: 2)),
-  //   ),
-  //   Transaction(
-  //     id: 't2',
-  //     title: 'Conta de Luz',
-  //     value: 211.30,
-  //     date: DateTime.now(),
-  //   ),
-  //   Transaction(
-  //     id: 't3',
-  //     title: 'Cartão de Crédito',
-  //     value: 1611.75,
-  //     date: DateTime.now(),
-  //   ),
-  //   Transaction(
-  //     id: 't4',
-  //     title: 'Notebook Dell',
-  //     value: 4211.30,
-  //     date: DateTime.now().subtract(const Duration(days: 3)),
-  //   ),
-  // ];
+  final List<Transaction> _transactions = [
+    Transaction(
+      id: 't0',
+      title: 'Placa Mãe',
+      value: 999.90,
+      date: DateTime.now().subtract(const Duration(days: 28)),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'Novo Tênis de corrida',
+      value: 310.76,
+      date: DateTime.now().subtract(const Duration(days: 2)),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Cartão de Crédito',
+      value: 611.75,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Notebook Dell',
+      value: 4211.30,
+      date: DateTime.now().subtract(const Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't5',
+      title: 'Calça',
+      value: 199.30,
+      date: DateTime.now().subtract(const Duration(days: 4)),
+    ),
+  ];
 
   List<Transaction> get _recentTransactions {
     return _transactions
